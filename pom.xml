@@ -9,7 +9,7 @@
     <artifactId>TechniqueDeTest</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>TechniqueDeTest</name>
-    <description>Un projet Maven pour démonstration</description>
+    <description>Projet technique de test</description>
     
     <!-- Cycles de vie -->
     <packaging>jar</packaging>
