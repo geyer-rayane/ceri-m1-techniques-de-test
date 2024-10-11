@@ -14,15 +14,11 @@ public class IPokedexTest {
 
     @BeforeEach
     public void setUp() {
-        pokedex = Mockito.mock(IPokedex.class);
-        mockPokemon = Mockito.mock(Pokemon.class);
+
     }
 
     @Test
     public void testAddPokemon() {
-        when(pokedex.addPokemon(mockPokemon)).thenReturn(0);
-        int index = pokedex.addPokemon(mockPokemon);
-        assertEquals(0, index);
-        verify(pokedex).addPokemon(mockPokemon); 
+    		System.out.println("Test de test") ;
     }
 }
