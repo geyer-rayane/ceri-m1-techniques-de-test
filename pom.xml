@@ -10,6 +10,13 @@
     <name>pokedex-api-java</name>
 
     <dependencies>
+    <dependency>
+    	<groupId>org.junit.jupiter</groupId>
+   		<artifactId>junit-jupiter</artifactId>
+    	<version>5.9.0</version> <!-- Vérifiez pour la dernière version -->
+    	<scope>test</scope>
+	</dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

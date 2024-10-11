@@ -5,6 +5,8 @@ public class IPokedexFactoryTest {
 
 	
 	public IPokedexFactoryTest() {
+		
+		
 	}
 
 }
