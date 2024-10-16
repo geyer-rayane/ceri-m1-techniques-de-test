@@ -3,7 +3,7 @@ package fr.univavignon.pokedex.api;
 import java.util.Comparator;
 import java.util.List;
 
-/**
+/** 
  * IPokedex interface. An IPokedex aims to store all information about
  * captured pokemon, as their default metadata as well.
  * 
@@ -51,5 +51,6 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 	 * @return Sorted unmodifiable list of all pokemons.
 	 */
 	List<Pokemon> getPokemons(Comparator<Pokemon> order);
-	
+
 }
+

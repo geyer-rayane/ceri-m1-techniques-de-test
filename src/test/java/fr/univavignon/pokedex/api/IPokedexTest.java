@@ -24,4 +24,14 @@ public class IPokedexTest {
         assertEquals(0, index);
         verify(pokedex).addPokemon(pokemon);
     }
+
+    @Test
+    public void testGetPokemon()
+    {
+        pokedex.addPokemon(pokemon);
+        when(pokedex.getPokemon(0).thenReturn(0));
+        int index = pokedex.getPokemon(0);
+        assertEquals(0,index)
+        verify(pokedex).getPokemon(0);    
+    }
 }
