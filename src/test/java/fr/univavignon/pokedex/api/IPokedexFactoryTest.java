@@ -6,12 +6,21 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+
 
 public class IPokedexFactoryTest {
 
+    @Mock
     private IPokedexFactory pokedexFactory;
+    
+    @Mock
     private IPokemonMetadataProvider metadataProvider;
+    
+    @Mock
     private IPokemonFactory pokemonFactory;
+    
+    @Mock
     private IPokedex pokedex;
 
     @Before
