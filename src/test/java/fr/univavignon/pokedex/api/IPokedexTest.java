@@ -31,7 +31,7 @@ public class IPokedexTest {
         pokedex.addPokemon(pokemon);
         when(pokedex.getPokemon(0).thenReturn(0));
         int index = pokedex.getPokemon(0);
-        assertEquals(0,index)
+        assertEquals(0,index);
         verify(pokedex).getPokemon(0);    
     }
 }
