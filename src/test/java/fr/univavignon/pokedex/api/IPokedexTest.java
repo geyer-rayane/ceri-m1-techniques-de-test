@@ -2,18 +2,24 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.Assert.*;
-
-import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class IPokedexTest {
 
+    @Mock
     private Pokemon bulbizarre;
+    @Mock
     private Pokemon aquali;
 
     @InjectMocks
@@ -23,14 +29,34 @@ public class IPokedexTest {
 
     @Before
     public void setUp() {
-        bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
-        aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 1.00);
-
         pokemons = new ArrayList<>();
         pokemons.add(bulbizarre);
         pokemons.add(aquali);
         
-        Mockito.doReturn(pokemons).when(pokedex).getPokemons();
+        when(bulbizarre.getIndex()).thenReturn(0);
+        when(bulbizarre.getName()).thenReturn("Bulbizarre");
+        when(bulbizarre.getCp()).thenReturn(613);
+        when(bulbizarre.getAttack()).thenReturn(126);
+        when(bulbizarre.getDefense()).thenReturn(126);
+        when(bulbizarre.getStamina()).thenReturn(90);
+        when(bulbizarre.getCp()).thenReturn(613);
+        when(bulbizarre.getHp()).thenReturn(64);
+        when(bulbizarre.getDust()).thenReturn(4000);
+        when(bulbizarre.getCandy()).thenReturn(4);
+        when(bulbizarre.getIv()).thenReturn(0.56);
+
+        when(aquali.getIndex()).thenReturn(133);
+        when(aquali.getName()).thenReturn("Aquali");
+        when(aquali.getAttack()).thenReturn(186);
+        when(aquali.getDefense()).thenReturn(168);
+        when(aquali.getStamina()).thenReturn(260);
+        when(aquali.getCp()).thenReturn(2729);
+        when(aquali.getHp()).thenReturn(202);
+        when(aquali.getDust()).thenReturn(5000);
+        when(aquali.getCandy()).thenReturn(4);
+        when(aquali.getIv()).thenReturn(1.00);
+
+        when(pokedex.getPokemons()).thenReturn(pokemons);
     }
 
     @Test
@@ -79,7 +105,7 @@ public class IPokedexTest {
         });
 
         List<Pokemon> sortedPokemons = pokedex.getPokemons(cpComparator);
-        assertEquals(aquali, sortedPokemons.get(0)); /*  Cp(Aquali) > CP(Bulbizarre) */
+        assertEquals(aquali, sortedPokemons.get(0)); /* Cp(Aquali) > CP(Bulbizarre) */
         assertEquals(bulbizarre, sortedPokemons.get(1));
     }
 }
