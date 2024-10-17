@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class IPokemonMetadataProviderTest {
-/* 
     @Mock
     private IPokemonMetadataProvider metadataProvider;
 
@@ -40,5 +39,5 @@ public class IPokemonMetadataProviderTest {
         PokemonMetadata result = metadataProvider.getPokemonMetadata(0);
         assertEquals(pokemonMetadata, result);
     }
-		*/
+
 }
