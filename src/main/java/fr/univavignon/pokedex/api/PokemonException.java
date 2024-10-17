@@ -1,7 +1,7 @@
 package fr.univavignon.pokedex.api;
 
 /**
- * Custom exception for pokedex related error.
+ * Custom exception for pokemon related error.
  *
  * @author fv
  */
