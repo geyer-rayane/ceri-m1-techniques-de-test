@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 public class IPokemonTrainerFactoryTest {
 
     @Mock
-    private PokemonTrainerFactory pokemonTrainerFactory;
+    private IPokemonTrainerFactory pokemonTrainerFactory;
 
     @Mock
     private IPokedexFactory pokedexFactory;
