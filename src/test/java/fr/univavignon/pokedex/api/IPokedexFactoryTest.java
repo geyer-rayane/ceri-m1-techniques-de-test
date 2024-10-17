@@ -27,6 +27,7 @@ public class IPokedexFactoryTest {
     public void setUp() {
         metadataProvider = mock(IPokemonMetadataProvider.class);
         pokemonFactory = mock(IPokemonFactory.class);
+        pokedex = mock(IPokedex.class);
 	}
 
 
