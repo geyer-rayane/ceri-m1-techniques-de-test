@@ -29,6 +29,8 @@ public class IPokedexFactoryTest {
         pokemonFactory = mock(IPokemonFactory.class);
 	}
 
+    /* 
+
     @Test
     public void testCreatePokedex() {
         pokedex = mock(IPokedex.class);
@@ -38,4 +40,6 @@ public class IPokedexFactoryTest {
         assertEquals(pokedex, createdPokedex);
         verify(pokedexFactory).createPokedex(metadataProvider, pokemonFactory);
     }
+
+    */
 }

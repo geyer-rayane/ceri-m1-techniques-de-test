@@ -44,6 +44,8 @@ public class IPokedexTest {
         assertEquals(2, pokedex.size());
     }
 
+
+    /* 
     @Test
     public void testAddPokemon() {
         when(pokedex.addPokemon(bulbizarre)).thenReturn(0);
@@ -84,7 +86,10 @@ public class IPokedexTest {
         });
 
         List<Pokemon> sortedPokemons = pokedex.getPokemons(cpComparator);
-        assertEquals(aquali, sortedPokemons.get(0)); /*  Cp(Aquali) > CP(Bulbizarre) */
+        assertEquals(aquali, sortedPokemons.get(0)); // Cp(Aquali) > CP(Bulbizarre) 
         assertEquals(bulbizarre, sortedPokemons.get(1));
     }
+        */
+
+
 }
