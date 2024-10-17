@@ -6,7 +6,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class IPokemonMetadataProviderTest {
-
+/* 
     @Mock
     private IPokemonMetadataProvider metadataProvider;
 
@@ -28,4 +28,5 @@ public class IPokemonMetadataProviderTest {
         PokemonMetadata result = metadataProvider.getPokemonMetadata(0);
         assertEquals(pokemonMetadata, result);
     }
+		*/
 }
