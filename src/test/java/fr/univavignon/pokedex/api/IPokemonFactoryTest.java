@@ -25,7 +25,7 @@ public class IPokemonFactoryTest {
 
     @Test
     public void testCreatePokemon() {
-        when(pokemonFactory.createPokemon(0, "Bulbizarre", 64, 4000, 4)).thenReturn(expectedPokemon);
+        when(pokemonFactory.createPokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56)).thenReturn(expectedPokemon);
         
         createdPokemon = pokemonFactory.createPokemon(0, "Bulbizarre", 64, 4000, 4);
         assertNotNull(createdPokemon);
