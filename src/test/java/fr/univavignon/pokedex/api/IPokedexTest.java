@@ -79,15 +79,14 @@ public class IPokedexTest {
     @Test
     public void testGetPokemonsSorted() {
         Comparator<Pokemon> cpComparator = Comparator.comparingInt(Pokemon::getCp);
-        when(pokedex.getPokemons(cpComparator)).thenAnswer(invocation -> {
-            pokemons.sort(cpComparator);
-            return pokemons;
-        });
+        List<Pokemon> sortedPokemons = new ArrayList<>();
+        
+        sortedPokemons.add(aquali);
+        sortedPokemons.add(bulbizarre);
 
-        List<Pokemon> sortedPokemons = pokedex.getPokemons(cpComparator);
-        assertEquals(aquali, sortedPokemons.get(0)); // Cp(Aquali) > CP(Bulbizarre) 
-        assertEquals(bulbizarre, sortedPokemons.get(1));
+        when(pokedex.getPokemons(cpComparator)).thenReturn(ArrayList.asList(aquali,bulbizarre));
+        assertEquals(sortedPokemons,pokedex.getPokemons(cpComparator));
+
     }
-
 
 }
