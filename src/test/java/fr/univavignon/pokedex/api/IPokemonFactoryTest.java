@@ -8,7 +8,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
 public class IPokemonFactoryTest {
-
+/* 
     @Mock
     private IPokemonFactory pokemonFactory;
     
@@ -24,7 +24,7 @@ public class IPokemonFactoryTest {
         expectedPokemon = mock(Pokemon.class);
         createdPokemon = mock(Pokemon.class);
     }
-    /* 
+    
 
     @Test
     public void testCreatePokemon() {

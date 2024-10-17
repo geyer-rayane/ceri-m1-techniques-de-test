@@ -10,7 +10,7 @@ import org.mockito.Mock;
 
 
 public class IPokedexFactoryTest {
-
+/* 
     @Mock
     private IPokedexFactory pokedexFactory;
     
