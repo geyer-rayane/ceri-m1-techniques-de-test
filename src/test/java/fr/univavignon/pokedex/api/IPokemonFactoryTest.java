@@ -16,6 +16,7 @@ public class IPokemonFactoryTest {
 
     private Pokemon createdPokemon;
 
+
     @Before
     public void setUp() {
         expectedPokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
@@ -37,6 +38,5 @@ public class IPokemonFactoryTest {
         assertEquals(4000, createdPokemon.getDust());
         assertEquals(4, createdPokemon.getCandy());
     }
-
 
 }
