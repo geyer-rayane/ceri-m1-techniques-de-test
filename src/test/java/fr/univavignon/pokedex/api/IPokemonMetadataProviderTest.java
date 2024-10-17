@@ -35,7 +35,7 @@ public class IPokemonMetadataProviderTest {
         when(metadataProvider.getPokemonMetadata(0)).thenReturn(pokemonMetadata);
         PokemonMetadata testPokemon=iPokemonMetadataProvider.getPokemonMetadata(0);
         assertNotNull(testPokemon);
-        assertEquals(0, testPokemon.getInde));
+        assertEquals(0, testPokemon.getIndex());
         assertEquals(90, testPokemon.getStamina());
         assertEquals("Bulbizarre", testPokemon.getName());
         assertEquals(126, testPokemon.getAttack());
