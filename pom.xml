@@ -44,13 +44,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <testSourceDirectory>src/test/java</testSourceDirectory> 
+                    <testSourceDirectory>/mnt/data/uapv2307467/Mes documents/Techniques de tet/ceri-m1-techniques-de-test/src/test/java</testSourceDirectory>
                     <includes>
                         <include>**/*Test.java</include>
                     </includes>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
