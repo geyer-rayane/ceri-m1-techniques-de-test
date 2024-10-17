@@ -42,7 +42,7 @@ public class IPokedexFactoryTest {
 
     @Test
     public void testCreatePokedex() {
-        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory).thenReturn(pokedex));
+        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);
         IPokedex createdPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
         assertNotNull(createdPokedex);
     }
