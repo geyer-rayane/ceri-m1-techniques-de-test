@@ -31,11 +31,11 @@ public class IPokemonFactoryTest {
         assertNotNull(createdPokemon);
 
         /* Pas forcément utile.. */
-        assertEquals(index, createdPokemon.getIndex());
-        assertEquals(cp, createdPokemon.getCp());
-        assertEquals(hp, createdPokemon.getHp());
-        assertEquals(dust, createdPokemon.getDust());
-        assertEquals(candy, createdPokemon.getCandy());
+        assertEquals(0, createdPokemon.getIndex());
+        assertEquals(613, createdPokemon.getCp());
+        assertEquals(64, createdPokemon.getHp());
+        assertEquals(4000, createdPokemon.getDust());
+        assertEquals(4, createdPokemon.getCandy());
     }
 
 
