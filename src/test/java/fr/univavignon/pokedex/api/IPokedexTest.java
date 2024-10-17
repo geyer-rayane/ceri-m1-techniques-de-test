@@ -63,9 +63,9 @@ public class IPokedexTest {
         verify(pokedex, times(1)).getPokemon(0);
     }
 
-    @Test(expected = PokedexException.class)
-    public void testGetPokemonInvalidId() throws PokedexException {
-        when(pokedex.getPokemon(200)).thenThrow(new PokedexException("Invalid ID. ID must be between 0 and 150"));
+    @Test(expected = PokemonException.class)
+    public void testGetPokemonInvalidId() throws PokemonException {
+        when(pokedex.getPokemon(200)).thenThrow(new PokemonException("Invalid ID. ID must be between 0 and 150"));
         pokedex.getPokemon(200);
     }
 
