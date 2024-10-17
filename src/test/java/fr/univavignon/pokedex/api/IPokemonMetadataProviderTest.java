@@ -23,7 +23,7 @@ public class IPokemonMetadataProviderTest {
 
     private PokemonMetadata pokemonMetadata;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         metadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
         pokemonMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
