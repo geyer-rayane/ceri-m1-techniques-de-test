@@ -6,7 +6,7 @@ import org.mockito.Mock;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
-public class PokemonTrainerFactoryTest {
+public class IPokemonTrainerFactoryTest {
 /* 
     @Mock
     private PokemonTrainerFactory pokemonTrainerFactory;
