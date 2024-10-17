@@ -45,7 +45,6 @@ public class IPokedexTest {
     }
 
 
-    /* 
     @Test
     public void testAddPokemon() {
         when(pokedex.addPokemon(bulbizarre)).thenReturn(0);
@@ -53,6 +52,8 @@ public class IPokedexTest {
         assertEquals(0, index);
         verify(pokedex, times(1)).addPokemon(bulbizarre);
     }
+
+    /* 
 
     @Test
     public void testGetPokemon() throws PokedexException {
