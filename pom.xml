@@ -8,7 +8,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-        <!-- JUnit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -16,7 +15,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Mockito -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -24,7 +22,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Apache Commons Collections -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
@@ -36,18 +33,16 @@
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <plugins>
-            <!-- Plugin Maven Compiler pour Java 8 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source> <!-- Version source -->
-                    <target>1.8</target> <!-- Version cible -->
+                    <source>1.8</source>
+                    <target>1.8</target> 
                 </configuration>
             </plugin>
 
-            <!-- Plugin Surefire pour l'exécution des tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
