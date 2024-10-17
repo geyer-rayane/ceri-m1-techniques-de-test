@@ -53,8 +53,6 @@ public class IPokedexTest {
         verify(pokedex, times(1)).addPokemon(bulbizarre);
     }
 
-    /* 
-
     @Test
     public void testGetPokemon() throws PokedexException {
         when(pokedex.getPokemon(0)).thenReturn(bulbizarre);
@@ -90,7 +88,6 @@ public class IPokedexTest {
         assertEquals(aquali, sortedPokemons.get(0)); // Cp(Aquali) > CP(Bulbizarre) 
         assertEquals(bulbizarre, sortedPokemons.get(1));
     }
-        */
 
 
 }
