@@ -10,7 +10,7 @@ import org.mockito.Mock;
 
 
 public class IPokedexFactoryTest {
-/* 
+
     @Mock
     private IPokedexFactory pokedexFactory;
     
@@ -29,7 +29,6 @@ public class IPokedexFactoryTest {
         pokemonFactory = mock(IPokemonFactory.class);
 	}
 
-    /* 
 
     @Test
     public void testCreatePokedex() {
@@ -41,5 +40,4 @@ public class IPokedexFactoryTest {
         verify(pokedexFactory).createPokedex(metadataProvider, pokemonFactory);
     }
 
-    */
 }

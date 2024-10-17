@@ -63,6 +63,7 @@ public class IPokedexTest {
         verify(pokedex, times(1)).getPokemon(0);
     }
 
+    /* Peut être le décaler dans la classe Pokemon factory => à l'instanciation vérifier l'ID ? */
     @Test(expected = PokedexException.class)
     public void testGetPokemonInvalidId() throws PokedexException {
         when(pokedex.getPokemon(200)).thenThrow(new PokedexException("Invalid ID. ID must be between 0 and 150"));
