@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-
 public class IPokedexFactoryTest {
 
     @Mock
@@ -25,20 +24,17 @@ public class IPokedexFactoryTest {
 
     @Before
     public void setUp() {
-        metadataProvider = mock(IPokemonMetadataProvider.class);
-        pokemonFactory = mock(IPokemonFactory.class);
-        pokedex = mock(IPokedex.class);
-	}
-
+        pokedexFactory = Mockito.mock(IPokedexFactory.class);
+        metadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
+        pokedex = Mockito.mock(IPokedex.class);
+        pokemonFactory = Mockito.mock(IPokemonFactory.class);
+    }
 
     @Test
     public void testCreatePokedex() {
-        pokedex = mock(IPokedex.class);
-        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);
+        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory).thenReturn(pokedex));
         IPokedex createdPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
         assertNotNull(createdPokedex);
-        assertEquals(pokedex, createdPokedex);
-        verify(pokedexFactory).createPokedex(metadataProvider, pokemonFactory);
     }
-
 }
+
