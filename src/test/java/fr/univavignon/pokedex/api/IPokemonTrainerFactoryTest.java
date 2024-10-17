@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class IPokemonTrainerFactoryTest {
-/* 
+
     @Mock
     private PokemonTrainerFactory pokemonTrainerFactory;
 
@@ -51,5 +51,4 @@ public class IPokemonTrainerFactoryTest {
         assertEquals(pokedex, newPokemonTrainer.getPokedex());
     }
 
-    */
 }
