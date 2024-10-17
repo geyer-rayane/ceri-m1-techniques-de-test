@@ -86,7 +86,7 @@ public class IPokedexTest {
         sortedPokemons.add(aquali);
         sortedPokemons.add(bulbizarre);
 
-        when(pokedex.getPokemons(cpComparator)).thenReturn(Arra.asList(aquali,bulbizarre));
+        when(pokedex.getPokemons(cpComparator)).thenReturn(Arrays.asList(aquali,bulbizarre));
         assertEquals(sortedPokemons,pokedex.getPokemons(cpComparator));
 
     }
