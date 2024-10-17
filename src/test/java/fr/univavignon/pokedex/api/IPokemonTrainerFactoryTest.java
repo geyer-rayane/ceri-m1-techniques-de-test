@@ -35,7 +35,7 @@ public class IPokemonTrainerFactoryTest {
 
     @Before
     public void setup() {
-        pokemonTrainerFactory = mock(PokemonTrainerFactory.class);
+        pokemonTrainerFactory = mock(IPokemonTrainerFactory.class);
         pokedexFactory = mock(IPokedexFactory.class);
         pokedex = mock(IPokedex.class);
         pokemonTrainer = new PokemonTrainer(name, team, pokedex);
