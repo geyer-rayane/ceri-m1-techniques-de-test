@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Run Tests
           command: mvn test
-       - run:
+      - run:
           name: Générer le rapport coco
           command: mvn jacoco:report
       - run:
