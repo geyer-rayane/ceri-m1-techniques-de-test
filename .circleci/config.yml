@@ -16,15 +16,17 @@ jobs:
           name: Run Tests
           command: mvn test
       - run : 
-          name : Code Coverage jacoco
+          name : Jacoco
           command : mvn jacoco:report
 
   upload-to-codecov:
     docker:
       - image: maven:3.8.5-openjdk-11
     steps:
+      - run:
+          name: Upload to codecov
+          command: codecov
       - checkout
-      - codecov/upload
 
 workflows:
   version: 2
