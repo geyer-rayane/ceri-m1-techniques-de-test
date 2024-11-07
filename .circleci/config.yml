@@ -15,6 +15,9 @@ jobs:
       - run:
           name: Run Tests
           command: mvn test
+      - run : 
+          name : Code Coverage jacoco
+          command : mvn jacoco test
 
   upload-to-codecov:
     docker:
