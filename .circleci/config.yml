@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@4.0.1
+  codecov: codecov/codecov@4.0.1  
 
 jobs:
   build:
@@ -18,10 +18,10 @@ jobs:
 
   upload-to-codecov:
     docker:
-      - image: codecov/codecov:latest
+      - image: codecov/codecov-cli:latest 
     steps:
       - checkout
-      - codecov/upload
+      - codecov/upload  
 
 workflows:
   version: 2
@@ -34,4 +34,4 @@ workflows:
                 - master
       - upload-to-codecov:
           requires:
-            - build
+            - build  
