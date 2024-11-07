@@ -15,17 +15,17 @@ jobs:
       - run:
           name: Run Tests
           command: mvn test
-      - run : 
-          name : Jacoco
-          command : mvn jacoco:report
+       - run:
+          name: Générer le rapport coco
+          command: mvn jacoco:report
+      - run:
+          name: Télécharger le rapport sur coco
+          command: curl -s https://codecov.io/bash | bash -s -- -t ${CODECOV_TOKEN}
 
   upload-to-codecov:
     docker:
       - image: maven:3.8.5-openjdk-11
     steps:
-      - run:
-          name: Upload to codecov
-          command: codecov
       - checkout
 
 workflows:
