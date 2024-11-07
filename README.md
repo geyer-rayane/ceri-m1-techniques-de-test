@@ -12,6 +12,10 @@
 ![CircleCI](https://circleci.com/gh/geyer-rayane/ceri-m1-techniques-de-test/tree/master.svg?style=shield)  
 ![Codecov](https://img.shields.io/codecov/c/github/geyer-rayane/ceri-m1-techniques-de-test.svg?style=shield)
 
+[![CircleCI](https://circleci.com/gh/geyer-rayane/ceri-m1-techniques-de-test/tree/master.svg?style=shield)](https://app.circleci.com/pipelines/github/geyer-rayane)
+[![Codecov](https://img.shields.io/codecov/c/github/geyer-rayane/ceri-m1-techniques-de-test.svg?style=shield)](https://app.codecov.io/github/geyer-rayane/ceri-m1-techniques-de-test)
+
+
 ---
 
 ## :eyes: Description du projet
