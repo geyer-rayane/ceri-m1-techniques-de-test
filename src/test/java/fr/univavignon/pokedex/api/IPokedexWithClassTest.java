@@ -17,8 +17,8 @@ public class IPokedexWithClassTest {
 
     @Before
     public void setUp() {
-        bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
-        aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 1.00);
+        bulbizarre = pokedex.getPokemon(0);
+        aquali = pokedex.getPokemon(133);
 
         IPokemonMetadataProvider metadataProvider = new IPokemonMetadataProvider() {
             @Override
@@ -100,7 +100,7 @@ public class IPokedexWithClassTest {
         assertEquals(aquali, sortedPokemons.get(0)); // Aquali a un CP plus élevé
         assertEquals(bulbizarre, sortedPokemons.get(1));
     }
-    */
+
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
         PokemonMetadata metadata = pokedex.getPokemonMetadata(0);
