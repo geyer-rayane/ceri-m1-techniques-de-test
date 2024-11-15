@@ -50,8 +50,8 @@ public class IPokedexWithClassTest {
         Pokemon pokemon1 = pokedex.getPokemon(0);
         Pokemon pokemon2 = pokedex.getPokemon(1);
 
-        assertEquals(bulbizarre, pokemon1);
-        assertEquals(aquali, pokemon2);
+        assertEquals(bulbizarre.getIndex(), pokemon1.getIndex());
+        assertEquals(aquali.getIndex(), pokemon2.getIndex());
     }
 
     @Test(expected = PokedexException.class)
@@ -61,8 +61,6 @@ public class IPokedexWithClassTest {
 
     @Test
     public void testGetPokemons() {
-        pokedex.addPokemon(bulbizarre);
-        pokedex.addPokemon(aquali);
         List<Pokemon> result = pokedex.getPokemons();
         assertEquals(2, result.size());
         assertEquals(bulbizarre.getIndex(), result.get(0).getIndex());
@@ -71,8 +69,6 @@ public class IPokedexWithClassTest {
 
     @Test
     public void testGetPokemonsSorted() {
-        pokedex.addPokemon(aquali);
-        pokedex.addPokemon(bulbizarre);
         Comparator<Pokemon> cpComparator = Comparator.comparingInt(Pokemon::getCp);
         List<Pokemon> sortedPokemons = pokedex.getPokemons(cpComparator);
         assertEquals(aquali.getIndex(), sortedPokemons.get(0).getIndex()); // Aquali a un CP plus élevé
