@@ -20,7 +20,6 @@ public class IPokemonFactoryWithClassTest {
     @Test
     public void testCreatePokemon() {
         createdPokemon = pokemonFactory.createPokemon(0, 126, 126, 90, 4);
-        assertNotNull(createdPokemon);
         assertEquals(expectedPokemon.getIndex(), createdPokemon.getIndex());
         assertEquals(expectedPokemon.getAttack(), createdPokemon.getAttack());
         assertEquals(expectedPokemon.getDefense(), createdPokemon.getDefense());
