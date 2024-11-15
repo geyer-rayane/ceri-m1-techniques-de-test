@@ -23,4 +23,24 @@ public class IPokemonTrainerFactoryWithClassTest {
         assertEquals(trainerTeam, createdTrainer.getTeam());
         assertEquals(pokedexInstance.getClass(), createdTrainer.getPokedex().getClass());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateTrainerWithNullName() {
+        trainerFactory.createTrainer(null, trainerTeam, pokedexFactoryInstance);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateTrainerWithEmptyName() {
+        trainerFactory.createTrainer("", trainerTeam, pokedexFactoryInstance);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateTrainerWithNullTeam() {
+        trainerFactory.createTrainer(trainerName, null, pokedexFactoryInstance);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateTrainerWithNullPokedexFactory() {
+        trainerFactory.createTrainer(trainerName, trainerTeam, null);
+    }
 }
