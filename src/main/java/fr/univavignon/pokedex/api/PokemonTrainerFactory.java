@@ -7,17 +7,22 @@ import java.util.List;
 
 public class PokemonTrainerFactory implements IPokemonTrainerFactory {
 
-	/**
-	 * Creates and returns a PokemonTrainer instance.
-	 * 
-	 * @param name Name of the created trainer.
-	 * @param team Team of the created trainer.
-	 * @param pokedexFactory Factory to use for creating associated pokedex instance.
-	 * @return Created trainer instance.
-	 */
-	PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory)
-    {
-        PokemonTrainer pokemonTrainer = new PokemonTrainer(name,team,pokedexFactory.createPokedex(null, null)) ;
-        return pokemonTrainer ;
-    }	
+    @Override
+    public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {
+        // Validate input arguments
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Trainer name cannot be null or empty.");
+        }
+        if (team == null) {
+            throw new IllegalArgumentException("Trainer team cannot be null.");
+        }
+        if (pokedexFactory == null) {
+            throw new IllegalArgumentException("PokedexFactory cannot be null.");
+        }
+        IPokemonMetadataProvider metadataProvider = new PokemonMetaDataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(); 
+        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+        return new PokemonTrainer(name, team, pokedex);
+    }
 }
+
