@@ -16,11 +16,8 @@ public class Pokedex implements IPokedex {
     public Pokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
         this.metadataProvider = metadataProvider;
         this.pokemonFactory = pokemonFactory;
-    }
-
-    public Pokedex() {
-        pokemons = new ArrayList<>();
-        nextId = 0;
+        this.pokemons = new ArrayList<>();
+        this.nextId = 0;
     }
 
     @Override
@@ -57,6 +54,10 @@ public class Pokedex implements IPokedex {
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
         return metadataProvider.getPokemonMetadata(index);
-}
+    }
 
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);
+    }
 }
