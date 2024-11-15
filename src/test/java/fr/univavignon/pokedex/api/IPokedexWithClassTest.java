@@ -44,14 +44,11 @@ public class IPokedexWithClassTest {
 
     @Test
     public void testGetPokemon() throws PokedexException {
-        pokedex.addPokemon(bulbizarre);
-        pokedex.addPokemon(aquali);
-
         Pokemon pokemon1 = pokedex.getPokemon(0);
         Pokemon pokemon2 = pokedex.getPokemon(1);
 
-        assertEquals(bulbizarre.getIndex(), pokemon1.getIndex());
-        assertEquals(aquali.getIndex(), pokemon2.getIndex());
+        assertEquals(aquali.getIndex(), pokemon1.getIndex());
+        assertEquals(bulbizarre.getIndex(), pokemon2.getIndex());
     }
 
     @Test(expected = PokedexException.class)
