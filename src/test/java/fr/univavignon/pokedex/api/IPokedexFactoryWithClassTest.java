@@ -20,8 +20,7 @@ public class IPokedexFactoryWithClassTest {
 
     @Test
     public void testCreatePokedex() {
-        // Create the pokedex using the factory
-        Pokedex createdPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+        Pokedex createdPokedex = (Pokedex) pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
         assertNotNull(createdPokedex);
     }
 }
