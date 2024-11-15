@@ -57,7 +57,7 @@ J'ai gérer directement dans certaines classes les problèmes liés aux valeurs 
 
 </details>
 
----
+--- 
 
 ## :rocket: Technologies utilisées
 
