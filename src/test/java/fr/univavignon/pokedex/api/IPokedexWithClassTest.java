@@ -88,7 +88,6 @@ public class IPokedexWithClassTest {
         assertEquals(aquali, result.get(1));
     }
 
-    /* 
     @Test
     public void testGetPokemonsSorted() {
         pokedex.addPokemon(bulbizarre);
