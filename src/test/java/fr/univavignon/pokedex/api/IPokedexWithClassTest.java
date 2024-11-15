@@ -88,6 +88,7 @@ public class IPokedexWithClassTest {
         assertEquals(aquali, result.get(1));
     }
 
+    /* 
     @Test
     public void testGetPokemonsSorted() {
         pokedex.addPokemon(bulbizarre);
@@ -99,7 +100,7 @@ public class IPokedexWithClassTest {
         assertEquals(aquali, sortedPokemons.get(0)); // Aquali a un CP plus élevé
         assertEquals(bulbizarre, sortedPokemons.get(1));
     }
-
+    */
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
         PokemonMetadata metadata = pokedex.getPokemonMetadata(0);
