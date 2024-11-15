@@ -16,7 +16,7 @@ public class IPokedexWithClassTest {
     private Pokemon aquali;
 
     @Before
-    public void setUp() {
+    public void setUp() throws PokedexException {
         bulbizarre = pokedex.getPokemon(0);
         aquali = pokedex.getPokemon(133);
 
