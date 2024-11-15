@@ -16,10 +16,12 @@ public class IPokedexWithClassTest {
     private Pokemon aquali;
 
     @Before
-    public void setUp() throws PokedexException {
-        bulbizarre = pokedex.getPokemon(0);
-        aquali = pokedex.getPokemon(133);
+    public void setUp() {
+        // Création des instances de Pokémon
+        bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+        aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 1.00);
 
+        // Création d'implémentations concrètes des dépendances
         IPokemonMetadataProvider metadataProvider = new IPokemonMetadataProvider() {
             @Override
             public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
@@ -39,6 +41,8 @@ public class IPokedexWithClassTest {
                 return new Pokemon(index, "FakePokemon", cp, cp, hp, cp * 10, candy, dust, 4, 0.5);
             }
         };
+
+        // Instanciation de la classe Pokedex
         pokedex = new Pokedex(metadataProvider, pokemonFactory);
     }
 
