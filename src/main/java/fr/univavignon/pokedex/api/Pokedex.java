@@ -10,6 +10,14 @@ public class Pokedex implements IPokedex {
     private List<Pokemon> pokemons;
     private int nextId;
 
+    private final IPokemonMetadataProvider metadataProvider;
+    private final IPokemonFactory pokemonFactory;
+
+    public Pokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
+        this.metadataProvider = metadataProvider;
+        this.pokemonFactory = pokemonFactory;
+    }
+
     public Pokedex() {
         pokemons = new ArrayList<>();
         nextId = 0;
@@ -45,4 +53,10 @@ public class Pokedex implements IPokedex {
         Collections.sort(sortedPokemons, order);
         return Collections.unmodifiableList(sortedPokemons);
     }
+
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+        return metadataProvider.getPokemonMetadata(index);
+}
+
 }
