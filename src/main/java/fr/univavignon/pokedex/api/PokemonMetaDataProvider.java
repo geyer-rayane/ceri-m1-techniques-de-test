@@ -15,8 +15,7 @@ public class PokemonMetaDataProvider implements IPokemonMetadataProvider {
 
     public PokemonMetaDataProvider() {
         metadataMap = new HashMap<>();
-        //Valeurs arbitraires
-        metadataMap.put(1, new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
+        metadataMap.put(0, new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
         metadataMap.put(3, new PokemonMetadata(133, "Aquali", 186, 168, 260));
     }
 

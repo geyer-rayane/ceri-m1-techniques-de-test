@@ -24,4 +24,6 @@ public class IPokemonFactoryWithClassTest {
         assertEquals(90, createdPokemon.getStamina());
         assertEquals(4, createdPokemon.getCandy());
     }
+    
+
 }
