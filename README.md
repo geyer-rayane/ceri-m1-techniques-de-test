@@ -14,6 +14,38 @@
 
 ---
 
+# Documentation du Projet : :book: 
+
+## Difficultés Initiales
+
+La prise en main des classes m'a pris du temps. J'ai plutôt l'habitude de développer from scratch avec le TDD plutôt qu'avec des interfaces "forçant" la définition générale des méthodes.
+
+## Choix de développement après l'implémentation des classes
+
+### 1. Création de Nouvelles Classes de Tests
+
+J'ai fais le choix de créer des classes de tests spécifiques pour les implémentations plutôt que de modifier les classes de tests abstraites (utilisant des mocks). Ce choix m'a permis de faciliter la transition entre les tests type Mock vers des tests "réels". Il aurait pu être plus judificieux d'ajouter d'une couche d'abstraction au niveau des mocks afin de faciliter encore plus ce passag, comme nous l'avons évoquer à l'oral aujourdhui (15/11). 
+
+### 2. Choix arbitraires
+
+J'ai fais le choix de calculer l'individual value du type Pokemon en prenant la moyenne entre ses 3 statistiques : attaque défense et endurance. Le tout divisé par 45. Formule trouvée sur un site fan de Pokemon. 
+
+### 2. Utilisation Maximale des Implémentations dans les Tests
+
+J'ai essayé d'utiliser au plus tôt les implémentations concrètes dans les tests. Peut être aurait il été plus judicieux de faire ça de façon incrémentale afin de ne pas découvrir des problèmes liés entre de trop nombreuses classes.
+
+### 3. Noms des Classes : Problèmes de Nommage
+
+Certains noms de classes ont été source de confusion, notamment `IPokemonMetadata` et `IPokemonMetaDataProvider`. La similitude a prêter à confusion, notamment au niveau du "d" et du "D" (nombreuses erreurs de symbol :( )).
+
+### 4. Tests Courts et Modulaires
+
+Aussi, j'ai fais le choix de structurer les tests de manière courte et modulaire plutôt que de faire des tests utilisant énormément d'assertequals et de comparatifs..
+
+### 5. Gestion des Problèmes dans les Classes
+
+J'ai gérer directement dans certaines classes les problèmes liés aux valeurs maximales, minimales, ou autres contraintes (ex : `PokemonTrainerFactory`).
+
 ## :eyes: Description du projet
 
 <details>
@@ -58,3 +90,9 @@
 
 ```bash
 git clone https://github.com/geyer-rayane/ceri-m1-techniques-de-test.git
+
+
+
+
+
+
