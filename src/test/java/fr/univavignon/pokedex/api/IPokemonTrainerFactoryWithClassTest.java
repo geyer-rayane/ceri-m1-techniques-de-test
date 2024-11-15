@@ -2,21 +2,25 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
- 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Arrays;
-
-
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public class IPokemonTrainerFactoryWithClassTest {
-    
+
+    private IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+    private String trainerName = "Rayane";
+    private Team trainerTeam = Team.MYSTIC;
+    private IPokedexFactory pokedexFactoryInstance = new PokedexFactory();
+    private PokemonMetadataProvider pokemonMetadataProvider = new PokemonMetadataProvider();
+    private PokemonFactory pokemonFactoryInstance = new PokemonFactory();
+    private IPokedex pokedexInstance = new Pokedex(pokemonMetadataProvider, pokemonFactoryInstance);
+
+    @Test
+    public void testCreateTrainer() {
+        PokemonTrainer createdTrainer = trainerFactory.createTrainer(trainerName, trainerTeam, pokedexFactoryInstance);
+
+        assertNotNull(createdTrainer);
+        assertEquals(trainerName, createdTrainer.getName());
+        assertEquals(trainerTeam, createdTrainer.getTeam());
+        assertEquals(pokedexInstance.getClass(), createdTrainer.getPokedex().getClass());
+    }
 }
