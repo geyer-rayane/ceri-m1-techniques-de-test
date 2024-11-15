@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class IPokedexWithClassTest {
 
-    private Pokedex pokedex;
+    private IPokedex pokedex;
     private PokemonMetaDataProvider metaDataProvider;
     private PokedexFactory pokedexFactory;
     private PokemonFactory pokemonFactory;
