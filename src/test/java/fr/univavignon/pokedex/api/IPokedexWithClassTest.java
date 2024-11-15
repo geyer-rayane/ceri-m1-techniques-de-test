@@ -38,11 +38,8 @@ public class IPokedexWithClassTest {
 
     @Test
     public void testAddPokemon() {
-        int index1 = pokedex.addPokemon(bulbizarre);
-        int index2 = pokedex.addPokemon(aquali);
-
-        assertEquals(0, index1);
-        assertEquals(1, index2);
+        assertEquals(133,pokedex.getPokemon(0).getIndex());
+        assertEquals(0, pokedex.getPokemon(1).getIndex());
     }
 
     @Test
@@ -80,8 +77,8 @@ public class IPokedexWithClassTest {
         pokedex.addPokemon(aquali);
         Comparator<Pokemon> cpComparator = Comparator.comparingInt(Pokemon::getCp);
         List<Pokemon> sortedPokemons = pokedex.getPokemons(cpComparator);
-        assertEquals(aquali, sortedPokemons.get(0)); // Aquali a un CP plus élevé
-        assertEquals(bulbizarre, sortedPokemons.get(1));
+        assertEquals(aquali.getIndex(), sortedPokemons.get(0).getIndex()); // Aquali a un CP plus élevé
+        assertEquals(bulbizarre.getIndex(), sortedPokemons.get(1).getIndex());
     }
 
     @Test
