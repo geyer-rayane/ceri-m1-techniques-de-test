@@ -60,8 +60,8 @@ public class IPokedexWithClassTest {
     public void testGetPokemons() {
         List<Pokemon> result = pokedex.getPokemons();
         assertEquals(2, result.size());
-        assertEquals(bulbizarre.getIndex(), result.get(0).getIndex());
-        assertEquals(aquali.getIndex(), result.get(1).getIndex());
+        assertEquals(aquali.getIndex(), result.get(0).getIndex());
+        assertEquals(bulbizarre.getIndex(), result.get(1).getIndex());
     }
 
     @Test
