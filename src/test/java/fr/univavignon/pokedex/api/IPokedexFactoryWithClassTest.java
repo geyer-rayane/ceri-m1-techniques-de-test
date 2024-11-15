@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class IPokedexFactoryWithClassTest {
 
     private PokedexFactory pokedexFactory;
-    private PokemonMetadataProvider metadataProvider;
+    private PokemonMetaDataProvider metadataProvider;
     private PokemonFactory pokemonFactory;
 
     @Before
