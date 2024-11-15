@@ -25,4 +25,4 @@ public class PokemonMetaDataProvider implements IPokemonMetadataProvider {
             throw new PokedexException("Invalid Pokemon index");
         }
     }
-}
+} 
