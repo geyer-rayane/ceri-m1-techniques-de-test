@@ -12,27 +12,19 @@ import static org.junit.Assert.*;
 public class IPokedexWithClassTest {
 
     private Pokedex pokedex;
+    private PokemonMetaDataProvider metaDataProvider;
+    private PokedexFactory pokedexFactory;
+    private PokemonFactory pokemonFactory;
     private Pokemon bulbizarre;
     private Pokemon aquali;
 
     @Before
     public void setUp() {
-        // Création des instances de Pokémon
-        bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
-        aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 1.00);
-
-        // Création d'implémentations concrètes des dépendances
-        IPokemonMetadataProvider metadataProvider = new IPokemonMetadataProvider() {
-            @Override
-            public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-                if (index == 0) {
-                    return new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
-                } else if (index == 133) {
-                    return new PokemonMetadata(133, "Aquali", 186, 168, 260);
-                } else {
-                    throw new PokedexException("Invalid index");
-                }
-            }
+            bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+            aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 1.00);
+            pokedex = pokedexFactory.createPokedex(metaDataProvider, pokemonFactory);
+            pokedex.addPokemon(aquali);
+            pokedex.addPokemon(bulbizarre);
         };
 
         IPokemonFactory pokemonFactory = new IPokemonFactory() {
@@ -91,19 +83,17 @@ public class IPokedexWithClassTest {
         assertEquals(bulbizarre, result.get(0));
         assertEquals(aquali, result.get(1));
     }
-/* 
+
     @Test
     public void testGetPokemonsSorted() {
         pokedex.addPokemon(bulbizarre);
         pokedex.addPokemon(aquali);
-
         Comparator<Pokemon> cpComparator = Comparator.comparingInt(Pokemon::getCp);
         List<Pokemon> sortedPokemons = pokedex.getPokemons(cpComparator);
-
         assertEquals(aquali, sortedPokemons.get(0)); // Aquali a un CP plus élevé
         assertEquals(bulbizarre, sortedPokemons.get(1));
     }
-*/
+
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
         PokemonMetadata metadata = pokedex.getPokemonMetadata(0);
