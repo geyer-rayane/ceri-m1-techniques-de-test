@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 
 public class IPokemonMetadataProviderWithClassTest {
     
-    private PokemonMetadataProvider metadataProvider;
+    private PokemonMetaDataProvider metadataProvider;
     private PokemonMetadata pokemonMetadata;
 
     @Before
