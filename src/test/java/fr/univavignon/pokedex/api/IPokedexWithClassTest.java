@@ -37,7 +37,7 @@ public class IPokedexWithClassTest {
     }
 
     @Test
-    public void testAddPokemon() {
+    public void testAddPokemon() throws PokedexException {
         assertEquals(133,pokedex.getPokemon(0).getIndex());
         assertEquals(0, pokedex.getPokemon(1).getIndex());
     }
