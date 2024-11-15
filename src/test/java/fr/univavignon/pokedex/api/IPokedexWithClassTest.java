@@ -3,7 +3,6 @@ package fr.univavignon.pokedex.api;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -20,29 +19,20 @@ public class IPokedexWithClassTest {
 
     @Before
     public void setUp() {
-            bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
-            aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 1.00);
-            pokedex = pokedexFactory.createPokedex(metaDataProvider, pokemonFactory);
-            pokedex.addPokemon(aquali);
-            pokedex.addPokemon(bulbizarre);
-        };
+        bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+        aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 1.00);
+        
+        metaDataProvider = new PokemonMetaDataProvider();
+        pokedexFactory = new PokedexFactory(); 
+        pokemonFactory = new PokemonFactory();
 
-        IPokemonFactory pokemonFactory = new IPokemonFactory() {
-            @Override
-            public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-                return new Pokemon(index, "FakePokemon", cp, cp, hp, cp * 10, candy, dust, 4, 0.5);
-            }
-        };
-
-        // Instanciation de la classe Pokedex
-        pokedex = new Pokedex(metadataProvider, pokemonFactory);
+        pokedex = pokedexFactory.createPokedex(metaDataProvider, pokemonFactory);
+        pokedex.addPokemon(aquali);
+        pokedex.addPokemon(bulbizarre);
     }
 
     @Test
     public void testSize() {
-        assertEquals(0, pokedex.size());
-        pokedex.addPokemon(bulbizarre);
-        pokedex.addPokemon(aquali);
         assertEquals(2, pokedex.size());
     }
 
@@ -69,7 +59,7 @@ public class IPokedexWithClassTest {
 
     @Test(expected = PokedexException.class)
     public void testGetPokemonInvalidId() throws PokedexException {
-        pokedex.getPokemon(100); // Aucun Pokémon à cet index
+        pokedex.getPokemon(100);
     }
 
     @Test
