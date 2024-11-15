@@ -14,7 +14,7 @@ public class IPokemonFactoryWithClassTest {
     @Before
     public void setUp() {
         pokemonFactory = new PokemonFactory(); 
-        expectedPokemon = new Pokemon(0, 126, 126, 90, 4,613,64,4000,4,0.56); 
+        expectedPokemon = new Pokemon(0, 126, 126, 90, 4, 613, 64, 4000, 4, 0.56);
     }
 
     @Test
