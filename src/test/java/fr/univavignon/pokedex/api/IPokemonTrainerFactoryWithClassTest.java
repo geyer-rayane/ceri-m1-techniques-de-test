@@ -10,7 +10,7 @@ public class IPokemonTrainerFactoryWithClassTest {
     private String trainerName = "Rayane";
     private Team trainerTeam = Team.MYSTIC;
     private IPokedexFactory pokedexFactoryInstance = new PokedexFactory();
-    private PokemonMetadataProvider pokemonMetadataProvider = new PokemonMetadataProvider();
+    private PokemonMetaDataProvider pokemonMetadataProvider = new PokemonMetaDataProvider();
     private PokemonFactory pokemonFactoryInstance = new PokemonFactory();
     private IPokedex pokedexInstance = new Pokedex(pokemonMetadataProvider, pokemonFactoryInstance);
 
