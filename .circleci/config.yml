@@ -21,6 +21,9 @@ jobs:
       - run:
           name: Télécharger le rapport sur coco
           command: curl -s https://codecov.io/bash | bash -s -- -t ${CODECOV_TOKEN}
+      - run:
+          name: Run Checkstyle
+          command: mvn checkstyle:checkstyle
 
   upload-to-codecov:
     docker:
