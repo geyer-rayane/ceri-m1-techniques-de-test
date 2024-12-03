@@ -25,6 +25,7 @@ jobs:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
 
+
   upload-to-codecov:
     docker:
       - image: maven:3.8.5-openjdk-11
