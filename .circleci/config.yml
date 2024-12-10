@@ -25,10 +25,6 @@ jobs:
           name: Run Checkstyle
           command: |
             mvn checkstyle:checkstyle
-      - run:
-          name: Copy Checkstyle HTML
-          command: |
-            cp target/site/checkstyle.html copy_rapport.html
 
   upload-to-codecov:
     docker:
