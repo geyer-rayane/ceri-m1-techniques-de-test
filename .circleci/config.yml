@@ -12,7 +12,6 @@ jobs:
           name: Maven Build
           command: |
             mvn clean install
-            echo "Ajout d'une nouvelle section au README" >> README.md
       - run:
           name: Run Tests
           command: mvn test
