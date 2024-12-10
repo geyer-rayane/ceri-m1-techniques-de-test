@@ -25,7 +25,10 @@ jobs:
           name: Run Checkstyle
           command: |
             mvn checkstyle:checkstyle
-            sed -i 's|!\[Checkstyle Status\](.*)|![Checkstyle Status](https://img.shields.io/badge/Checkstyle-Passed-green)|' README.md
+      - run:
+          name: Copy Checkstyle HTML
+          command: |
+            cp target/site/checkstyle.html copy_rapport.html
 
   upload-to-codecov:
     docker:
