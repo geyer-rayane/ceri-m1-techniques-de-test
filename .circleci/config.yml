@@ -1,0 +1,74 @@
+version: 2.1
+orbs:
+  codecov: codecov/codecov@4.0.1
+
+jobs:
+  build:
+    docker:
+      - image: maven:3.8.5-openjdk-11
+    steps:
+      - checkout
+      - run:
+          name: Maven Build
+          command: |
+            mvn clean install
+      - run:
+          name: Run Tests
+          command: mvn test
+      - run:
+          name: Generate JavaDoc
+          command: mvn javadoc:javadoc
+      - run:
+          name: Générer le rapport Jacoco
+          command: mvn jacoco:report
+      - run:
+          name: Télécharger le rapport sur Codecov
+          command: curl -s https://codecov.io/bash | bash -s -- -t ${CODECOV_TOKEN}
+      - run:
+          name: Run Checkstyle
+          command: mvn checkstyle:checkstyle
+
+      - run:
+          name: JavaDoc
+          command: |
+            git config --global user.name "geyer-rayane"
+            git config --global user.email "geyerrayanegit@gmail.com"
+            mkdir -p /tmp/gh-pages
+            git clone https://$GITHUB_TOKEN@github.com/geyer-rayane/ceri-m1-techniques-de-test.git /tmp/gh-pages
+            cd /tmp/gh-pages
+            if ! git show-ref --quiet refs/heads/gh-pages; then
+              git checkout --orphan gh-pages
+              git rm -rf .
+              echo "Ajout gh-pages" > index.html
+              git add index.html
+              git commit -m "Création gh-pages branche"
+              git push origin gh-pages
+            fi
+            cd -  
+            
+            git checkout master
+            cp -R .circleci /tmp/gh-pages/      
+            cp -R target/site/apidocs/* /tmp/gh-pages/
+            cd /tmp/gh-pages
+            git add .
+            git commit -m "MAJ de la JavaDoc"
+            git push origin gh-pages
+
+  upload-to-codecov:
+    docker:
+      - image: maven:3.8.5-openjdk-11
+    steps:
+      - checkout
+
+workflows:
+  version: 2
+  build_and_upload:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+      - upload-to-codecov:
+          requires:
+            - build
