@@ -1,0 +1,10 @@
+Rapport :
+
+Donner des stats négatives est possible
+Créer Pokemon avec id négatif
+Stats ne sont pas par rapport avec les MétéData
+TODO a suprimer et a deviner
+IV mal calculé
+ID non compris entre 0 et 150
+Fonction non documentées
+Aucun style respecté
