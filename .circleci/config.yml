@@ -25,24 +25,39 @@ jobs:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
       - run:
-          name: Vérifier le rapport Checkstyle
+          name: Vérifier le rapport Checkstyle et générer le badge
           command: |
-            # Vérifier si Checkstyle a échoué (en cherchant "Checkstyle Violations" dans le rapport)
             if grep -q "Checkstyle Violations" target/checkstyle-result.xml; then
+              # Badge rouge si Checkstyle échoue
               curl -s "https://img.shields.io/badge/Checkstyle-failed-red" > checkstyle-badge.svg
             else
               curl -s "https://img.shields.io/badge/Checkstyle-passed-brightgreen" > checkstyle-badge.svg
             fi
       - run:
-          name: Télécharger le badge Checkstyle
+          name: Installer GitHub CLI
           command: |
-            curl -X POST --data-binary @checkstyle-badge.svg https://example.com/upload
+            curl -s https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /usr/share/keyrings/github.asc > /dev/null
+            sudo apt update
+            sudo apt install gh
+      - run:
+          name: Authentifier GitHub CLI
+          command: echo "${GITHUB_TOKEN}" | gh auth login --with-token
+      - run:
+          name: Créer ou récupérer la release GitHub et uploader le badge
+          command: |
+            # Définir le tag de la release, vous pouvez utiliser un tag dynamique si vous voulez
+            RELEASE_TAG="v1.0"  # Remplacez ceci avec le tag que vous souhaitez utiliser
 
-  upload-to-codecov:
-    docker:
-      - image: maven:3.8.5-openjdk-11
-    steps:
-      - checkout
+            # Vérifier si la release existe déjà, sinon la créer
+            if gh release view $RELEASE_TAG --json name -q '.name' > /dev/null; then
+              echo "Release $RELEASE_TAG existe déjà."
+            else
+              echo "La release $RELEASE_TAG n'existe pas, création de la release."
+              gh release create $RELEASE_TAG checkstyle-badge.svg --title "$RELEASE_TAG Release" --notes "Ajout du badge Checkstyle"
+            fi
+
+            # Uploader le badge dans la release
+            gh release upload $RELEASE_TAG checkstyle-badge.svg
 
 workflows:
   version: 2
@@ -53,6 +68,3 @@ workflows:
             branches:
               only:
                 - master
-      - upload-to-codecov:
-          requires:
-            - build
