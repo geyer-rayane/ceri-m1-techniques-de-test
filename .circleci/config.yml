@@ -28,9 +28,7 @@ jobs:
           name: Run Checkstyle
           command: |
             mvn checkstyle:checkstyle
-            curl -s https://img.shields.io/badge/Checkstyle-Passed-brightgreen > collect_badge.svg
-            mv collect_badge.svg ./badge.svg
-            sed -i 's|!\\[Checkstyle Status\\](.*)|![Checkstyle Status](badge.svg)|' README.md
+            sed -i 's|!\[Checkstyle Status\](.*)|![Checkstyle Status](https://img.shields.io/badge/Checkstyle-Passed-green)|' README.md
 
   upload-to-codecov:
     docker:
