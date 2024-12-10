@@ -24,7 +24,9 @@ jobs:
       - run:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
-
+      - run:
+          name: Generate JavaDoc
+          command: mvn javadoc:javadoc
       - run:
           name: JavaDoc
           command: |
@@ -42,6 +44,7 @@ jobs:
               git push origin gh-pages
             fi
             cd -  
+            
             cp -R target/site/apidocs/* /tmp/gh-pages/
             cd /tmp/gh-pages
             git add .
