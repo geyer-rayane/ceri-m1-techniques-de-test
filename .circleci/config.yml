@@ -47,7 +47,7 @@ jobs:
             cd -  
             
             git checkout master
-            cp -R ./circleci /tmp/gh-pages/      
+            cp -R .circleci /tmp/gh-pages/      
             cp -R target/site/apidocs/* /tmp/gh-pages/
             cd /tmp/gh-pages
             git add .
