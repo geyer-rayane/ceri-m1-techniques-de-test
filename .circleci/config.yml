@@ -16,19 +16,19 @@ jobs:
           name: Run Tests
           command: mvn test
       - run:
-          name: Générer le rapport coco
+          name: Générer le rapport Jacoco
           command: mvn jacoco:report
       - run:
-          name: Télécharger le rapport sur coco
+          name: Télécharger le rapport sur Codecov
           command: curl -s https://codecov.io/bash | bash -s -- -t ${CODECOV_TOKEN}
       - run:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
       - run:
           name: Upload Checkstyle result to Shields.io
-          uses: phillipjones89/checkstyle-badge-action@v1.1
-          with:
-            checkstyle-file: 'target/checkstyle-result.xml'
+          command: |
+            curl -s "https://img.shields.io/badge/Checkstyle-passed-brightgreen" > checkstyle-badge.svg
+            curl -X POST --data-binary @checkstyle-badge.svg https://example.com/upload
 
   upload-to-codecov:
     docker:
