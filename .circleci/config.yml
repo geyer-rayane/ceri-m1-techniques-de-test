@@ -25,10 +25,17 @@ jobs:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
       - run:
-          name: Upload Checkstyle result to Shields.io
+          name: Check Checkstyle result and update badge
           command: |
-            curl -s "https://img.shields.io/badge/Checkstyle-passed-brightgreen" > checkstyle-badge.svg
-            curl -X POST --data-binary @checkstyle-badge.svg https://example.com/upload
+            # Vérifier si Checkstyle a échoué
+            if grep -q "Checkstyle: There are" target/checkstyle-result.xml; then
+              # Si Checkstyle échoue (erreurs détectées), générer un badge rouge
+              curl -s "https://img.shields.io/badge/Checkstyle-failed-red" > checkstyle-badge.svg
+            else
+              # Si Checkstyle passe (pas d'erreurs), générer un badge vert
+              curl -s "https://img.shields.io/badge/Checkstyle-passed-brightgreen" > checkstyle-badge.svg
+            fi
+            gh release create v1.0 checkstyle-badge.svg --title "Checkstyle Badge" --notes "Badge status for Checkstyle"
 
   upload-to-codecov:
     docker:
