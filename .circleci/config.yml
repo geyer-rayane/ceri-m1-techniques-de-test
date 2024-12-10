@@ -25,6 +25,29 @@ jobs:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
 
+      - run:
+          name: JavaDoc
+          command: |
+            git config --global user.name "geyer-rayane"
+            git config --global user.email "geyerrayanegit@gmail.com"
+            mkdir -p /tmp/gh-pages
+            git clone https://@github.com/geyer-rayane/ceri-m1-techniques-de-test.git /tmp/gh-pages
+            cd /tmp/gh-pages
+            if ! git show-ref --quiet refs/heads/gh-pages; then
+              git checkout --orphan gh-pages
+              git rm -rf .
+              echo "Ajout gh-pages" > index.html
+              git add index.html
+              git commit -m "Création gh-pages branche"
+              git push origin gh-pages
+            fi
+            cd -  
+            cp -R target/site/apidocs/* /tmp/gh-pages/
+            cd /tmp/gh-pages
+            git add .
+            git commit -m "MAJ de la JavaDoc"
+            git push origin gh-pages
+
   upload-to-codecov:
     docker:
       - image: maven:3.8.5-openjdk-11
