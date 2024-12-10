@@ -26,28 +26,20 @@ jobs:
           command: |
             mvn checkstyle:checkstyle
             if [ $? -eq 0 ]; then
-              echo "Checkstyle passed"
-              echo "Checkstyle Status: Passed" > checkstyle_status.txt
+              # Checkstyle réussi : badge vert
+              curl -s https://img.shields.io/badge/Checkstyle-Passed-brightgreen > badge.svg
             else
-              echo "Checkstyle failed"
-              echo "Checkstyle Status: Failed" > checkstyle_status.txt
+              # Checkstyle échoué : badge rouge
+              curl -s https://img.shields.io/badge/Checkstyle-Failed-red > badge.svg
             fi
       - run:
-          name: Ajouter le badge Checkstyle
+          name: Mettre à jour le README avec le badge
           command: |
-            if grep -q "Passed" checkstyle_status.txt; then
-              curl -s https://img.shields.io/badge/Checkstyle-Passed-brightgreen > checkstyle_badge.svg
-            else
-              curl -s https://img.shields.io/badge/Checkstyle-Failed-red > checkstyle_badge.svg
-            fi
-            # Déplacer le badge dans le répertoire spécifié
-            mv checkstyle_badge.svg /home/nas-wks01/users/uapv2307467/Donnees_itinerantes/public_html/checkstyle_badge.svg
-
-  upload-to-codecov:
-    docker:
-      - image: maven:3.8.5-openjdk-11
-    steps:
-      - checkout
+            mv badge.svg ./badge.svg
+            sed -i 's|!\\[Checkstyle Status\\](.*)|![Checkstyle Status](badge.svg)|' README.md
+      - store_artifacts:
+          path: badge.svg
+          destination: badge.svg
 
 workflows:
   version: 2
