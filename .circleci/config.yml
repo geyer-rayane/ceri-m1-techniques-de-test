@@ -26,17 +26,18 @@ jobs:
           command: |
             mvn checkstyle:checkstyle
             if [ $? -eq 0 ]; then
-            curl -s https://img.shields.io/badge/Checkstyle-Passed-brightgreen > badge.svg
+              curl -s https://img.shields.io/badge/Checkstyle-Passed-brightgreen > badge.svg
             else
-            curl -s https://img.shields.io/badge/Checkstyle-Failed-red > badge.svg
+              curl -s https://img.shields.io/badge/Checkstyle-Failed-red > badge.svg
             fi
-            - run:
-                command: |
-                  mv badge.svg ./badge.svg
-                  sed -i 's|!\\[Checkstyle Status\\](.*)|![Checkstyle Status](badge.svg)|' README.md
-            - store_artifacts:
-                path: badge.svg
-                destination: badge.svg
+      - run:
+          name: Mettre à jour le README avec le badge
+          command: |
+            mv badge.svg ./badge.svg
+            sed -i 's|!\\[Checkstyle Status\\](.*)|![Checkstyle Status](badge.svg)|' README.md
+      - store_artifacts:
+          path: badge.svg
+          destination: badge.svg
 
   upload-to-codecov:
     docker:
