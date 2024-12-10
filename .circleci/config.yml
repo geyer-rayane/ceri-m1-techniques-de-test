@@ -24,19 +24,12 @@ jobs:
       - run:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
-      - run:
-          name: Vérifier le rapport Checkstyle et générer le badge
-          command: |
-            if grep -q "Checkstyle Violations" target/checkstyle-result.xml; then
-              # Badge rouge si Checkstyle échoue
-              curl -s "https://img.shields.io/badge/Checkstyle-failed-red" > checkstyle-badge.svg
-            else
-              curl -s "https://img.shields.io/badge/Checkstyle-passed-brightgreen" > checkstyle-badge.svg
-            fi
-      - run:
-          name: Afficher le badge Checkstyle
-          command: |
-            cat checkstyle-badge.svg
+
+  upload-to-codecov:
+    docker:
+      - image: maven:3.8.5-openjdk-11
+    steps:
+      - checkout
 
 workflows:
   version: 2
@@ -47,3 +40,6 @@ workflows:
             branches:
               only:
                 - master
+      - upload-to-codecov:
+          requires:
+            - build
