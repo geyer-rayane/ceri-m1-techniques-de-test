@@ -16,6 +16,9 @@ jobs:
           name: Run Tests
           command: mvn test
       - run:
+          name: Generate JavaDoc
+          command: mvn javadoc:javadoc
+      - run:
           name: Générer le rapport Jacoco
           command: mvn jacoco:report
       - run:
@@ -24,9 +27,7 @@ jobs:
       - run:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
-      - run:
-          name: Generate JavaDoc
-          command: mvn javadoc:javadoc
+
       - run:
           name: JavaDoc
           command: |
