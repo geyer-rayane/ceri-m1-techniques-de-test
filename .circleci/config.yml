@@ -31,7 +31,7 @@ jobs:
             git config --global user.name "geyer-rayane"
             git config --global user.email "geyerrayanegit@gmail.com"
             mkdir -p /tmp/gh-pages
-            git clone https://@github.com/geyer-rayane/ceri-m1-techniques-de-test.git /tmp/gh-pages
+            git clone https://$GITHUB_TOKEN@github.com/geyer-rayane/ceri-m1-techniques-de-test.git /tmp/gh-pages
             cd /tmp/gh-pages
             if ! git show-ref --quiet refs/heads/gh-pages; then
               git checkout --orphan gh-pages
