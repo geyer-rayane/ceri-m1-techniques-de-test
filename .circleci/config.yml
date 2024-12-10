@@ -12,8 +12,7 @@ jobs:
           name: Maven Build
           command: |
             mvn clean install
-            sed -i 's|!\[Checkstyle Status\](.*)|![Checkstyle Status](https://img.shields.io/badge/Checkstyle-Failed-red)|' README.md
-
+            hayt append "Nouvelle section ajoutée au README avec succès"
       - run:
           name: Run Tests
           command: mvn test
