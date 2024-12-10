@@ -67,19 +67,20 @@
                 <version>3.1.2</version>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                    <outputFile>copy_rapport.html</outputFile>
+                    <outputFile>${project.build.directory}/copy_rapport.html</outputFile>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                 </configuration>
                 <executions>
                     <execution>
-                        <phase>verify</phase>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
+
 
         </plugins>
     </build>
