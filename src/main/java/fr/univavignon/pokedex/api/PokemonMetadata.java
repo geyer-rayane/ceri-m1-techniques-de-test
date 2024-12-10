@@ -1,5 +1,7 @@
 package fr.univavignon.pokedex.api;
 
+
+import java.util.List;
 /**
  * Pokemon metadata POJO.
  * 
