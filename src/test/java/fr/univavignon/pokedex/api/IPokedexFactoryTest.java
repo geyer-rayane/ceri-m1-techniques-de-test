@@ -30,7 +30,7 @@ public class IPokedexFactoryTest {
     private IPokemonFactory pokemonFactory;
     
     @Mock
-    private IPokedex pokedex;
+    private IPokedex pokedex ;
 
     @Before
     public void setUp() {
