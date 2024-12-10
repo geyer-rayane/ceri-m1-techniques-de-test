@@ -1,10 +1,13 @@
-Rapport :
+Conclusion TP6 :
 
-Donner des stats négatives est possible
-Créer Pokemon avec id négatif
-Stats ne sont pas par rapport avec les MétéData
-TODO a suprimer et a deviner
-IV mal calculé
-ID non compris entre 0 et 150
-Fonction non documentées
-Aucun style respecté
+D'après la classe fournie dans ce TP :
+    -Donner des stats négatives est possible
+    -Créer un Pokemon avec id négatif est possible => contraire à la définition dans les premiers TP
+    -Stats. ne sont pas par rapport avec les MétéData
+    -To do non terminé et très peu explicite
+    -IV mal calculé
+    -ID non compris entre 0 et 150 : la génération de Pokemon n'est pas logique idem pour calcul de IV
+    -Fonction non documentées
+    -Aucun style respecté
+    -Non respect des majuscule et convention de nommage des Pokemons
+

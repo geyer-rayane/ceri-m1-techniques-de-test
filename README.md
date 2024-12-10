@@ -11,7 +11,7 @@
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/geyer-rayane/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/geyer-rayane/ceri-m1-techniques-de-test/tree/master)
 [![codecov](https://codecov.io/github/geyer-rayane/ceri-m1-techniques-de-test/graph/badge.svg?token=SMJIHS7Y8H)](https://codecov.io/github/geyer-rayane/ceri-m1-techniques-de-test)
-![Checkstyle](target/site/badges/checkstyle-result.svg)
+![Checkstyle](https://img.shields.io/badge/Checkstyle-Passed-brightgreen)
 
 # Documentation du Projet : :book: 
 
